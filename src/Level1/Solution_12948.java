@@ -8,9 +8,13 @@ public class Solution_12948 {
 		String answer = "";
 		
 		for (int i = 0; i < phone_number.length(); i++) {
-			answer += (phone_number.length() - i) <= 4 ? phone_number.charAt(i) : '*';
+			if ((phone_number.length() - i) <= 4) {
+				answer += phone_number.charAt(i);
+			} else {
+				answer += '*';
+			}
 		}
-
+		
 	}
 
 }
