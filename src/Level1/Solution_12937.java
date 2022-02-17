@@ -1,5 +1,6 @@
 package Level1;
 
+//짝수와 홀수
 public class Solution_12937 {
 	
 	public static void main(String[] args) {
