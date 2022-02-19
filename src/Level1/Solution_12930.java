@@ -3,7 +3,7 @@ package Level1;
 //이상한 문자 만들기
 public class Solution_12930 {
 	public static void main(String[] args) {
-		String s = "try hello world";
+		String s = "try hello world"; 
 		Solution_12930 sol = new Solution_12930();
 		sol.solution(s);
 	}
