@@ -20,7 +20,6 @@ public class Solution_12930 {
 			}
 			answer += " ";
 		}
-
 		answer = answer.substring(0, answer.length() - 1);
 		
 		return answer;
