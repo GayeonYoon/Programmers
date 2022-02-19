@@ -17,7 +17,6 @@ public class Solution_12930 {
 			for (int j = 0; j < str_array[i].length(); j++) {
 				answer += (j % 2 == 0 ? str_array[i].substring(j, j + 1).toUpperCase()
 						: str_array[i].substring(j, j + 1).toLowerCase());
-
 			}
 			answer += " ";
 		}
