@@ -20,7 +20,7 @@ public class Solution_12901 {
 		String answer = "";
 
 		Calendar cal = Calendar.getInstance();
-		cal.set(year, month - 1, day); // -1을 하는 이유
+		cal.set(year, month - 1, day); 	// -1을 하는 이유 ** 
 
 		answer = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, new Locale("KR")).toUpperCase();
 
