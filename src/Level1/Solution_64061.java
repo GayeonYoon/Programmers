@@ -2,6 +2,7 @@ package Level1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 // 2019 카카오 개발자 겨울 인턴십 > 크레인 인형뽑기 게임
 // 온전히 내 힘으로 풀어따~~~ >3< 오예
@@ -19,7 +20,48 @@ public class Solution_64061 {
 		s.solution(board, moves);
 	}
 
+	// Stack 사용
 	public int solution(int[][] board, int[] moves) {
+
+		// 새로 담을 stack
+		Stack<Integer> stack = new Stack<Integer>();
+
+		// 바스켓에 넣을 선택된 수
+		int select_num = 0;
+
+		// 중복되어 삭제된 총 count
+		int count = 0;
+
+		for (int i = 0; i < moves.length; i++) {
+			int move_count = 0;
+
+			for (int j = 0; j < board.length; j++) {
+				select_num = board[j][moves[i] - 1];
+
+				if (select_num != 0 && move_count != 1) {
+					move_count++;
+					board[j][moves[i] - 1] = 0;
+
+					if (stack.empty()) {
+						stack.push(select_num);
+					} else {
+						if (stack.peek() != select_num) {
+							stack.push(select_num);
+						} else {
+							stack.pop();
+							count += 2;
+						}
+					}
+				}
+
+			}
+		}
+
+		return count;
+	}
+	
+	// ArrayList 사용
+	public int list_solution(int[][] board, int[] moves) {
 
 		// 새로 담을 바스켓 list
 		List<Integer> list = new ArrayList<Integer>();
@@ -48,7 +90,7 @@ public class Solution_64061 {
 						if (list.get(list.size() - 1) != select_num) { // 새로 넣을 수가 마지막 수와 같지 않을때만 add!
 							list.add(select_num);
 						} else { // 같은 수가 있다면 add하지않고, 기존에 있던 마지막 값도 삭제처리.
-							list.remove(list.size() - 1); 
+							list.remove(list.size() - 1);
 							count += 2;
 						}
 					}
